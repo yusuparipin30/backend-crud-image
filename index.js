@@ -4,6 +4,8 @@ import express from "express";
 import FileUpload from "express-fileUpload";
 //3.
 import cors from "cors";
+//9.import router dari folder routes pada file ProductRoute.js
+import ProductRoute from "./routes/ProductRoute.js";
 
 //4.
 const app = express();
@@ -13,6 +15,8 @@ app.use(cors());
 //gunakan express json agar bisa menerima data dlm bentuk format json
 app.use(express.json());
 app.use(FileUpload());
+//10. 
+app.use(ProductRoute);
 
 //5.
 app.listen(5000, () => console.log('Server Up and Running.....'));

@@ -12,9 +12,10 @@ const Product = db.define('product',{
 },{
     freezeTableName:true
 });
-
+//5.
 export default Product;
 
+//6.membuat fungsi untuk membuat table product apabila tidak terdapat di database
 (async()=>{
     await db.sync();
 })();
