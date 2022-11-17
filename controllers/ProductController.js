@@ -119,43 +119,21 @@ export const updateProduct = async(req, res)=>{
     }
 }
  
-// export const deleteProduct = async(req, res)=>{
-//     const product = await Product.findOne({
-//         where:{
-//             id : req.params.id
-//         }
-//     });
-//     //validasi apabila tidak ditemukan data dengan id pada table product maka return dan berikan status 404 dan berikan pesan
-//     if(!product) return res.status(404).json({msg: "No Data Found"});
-//      //jika datanya di temukan sesuai dengan idnya makan hapus image di dalam folder images dan delet data nya di dlm database
-//     try {
-//      // tulis di mana imagenya tersimpan (image adalah dimana file di dlm tabel product)
-//         const filepath = `./public/images/${product.image}`;
-//     //hapus image berdasarkan id menggunakan fs(inport fs terlebihdahulu)
-//         fs.unlinkSync(filepath);
-//     //hapus datanya yang berada di dlm database 
-//         await Product.destroy({
-//             where:{
-//                 id : req.params.id
-//             }
-//         });
-//         res.status(200).json({msg: "Product Deleted Successfuly"});
-//     } catch (error) {
-//         console.log(error.message);
-//     }
-// }
-
 export const deleteProduct = async(req, res)=>{
     const product = await Product.findOne({
         where:{
             id : req.params.id
         }
     });
+    //validasi apabila tidak ditemukan data dengan id pada table product maka return dan berikan status 404 dan berikan pesan
     if(!product) return res.status(404).json({msg: "No Data Found"});
- 
+     //jika datanya di temukan sesuai dengan idnya makan hapus image di dalam folder images dan delet data nya di dlm database
     try {
+     // tulis di mana imagenya tersimpan (image adalah dimana file di dlm tabel product)
         const filepath = `./public/images/${product.image}`;
+    //hapus image berdasarkan id menggunakan fs(inport fs terlebihdahulu)
         fs.unlinkSync(filepath);
+    //hapus datanya yang berada di dlm database 
         await Product.destroy({
             where:{
                 id : req.params.id
@@ -166,3 +144,4 @@ export const deleteProduct = async(req, res)=>{
         console.log(error.message);
     }
 }
+
