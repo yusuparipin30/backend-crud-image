@@ -15,6 +15,8 @@ app.use(cors());
 //gunakan express json agar bisa menerima data dlm bentuk format json
 app.use(express.json());
 app.use(FileUpload());
+//static file image 
+app.use(express.static("public"));
 //10. 
 app.use(ProductRoute);
 
@@ -23,3 +25,4 @@ app.listen(5000, () => console.log('Server Up and Running.....'));
 
 //7. jalankan pada terminal dengan perintah nodemon index untuk mengetahui aplikasi berjalan dengan baik
 //8. buat bbrpa forder dan filenya(config,models,routes,contrllers)
+
