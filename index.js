@@ -1,7 +1,7 @@
 //1.
 import express from "express";
 //2.
-import FileUpload from "express-fileUpload";
+import FileUpload from "express-fileupload";
 //3.
 import cors from "cors";
 //9.import router dari folder routes pada file ProductRoute.js
